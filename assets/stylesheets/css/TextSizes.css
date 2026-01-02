@@ -1,0 +1,33 @@
+@import 'tailwindcss';
+@import 'tailwindcss/theme' layer(theme);
+
+@layer utilities {
+  /* Text Sizes */
+  .text-micro {
+    @apply sm:text-md text-xl md:text-base;
+  }
+
+  .text-mini {
+    @apply sm:text-md text-xl md:text-base;
+  }
+
+  .text-small {
+    @apply text-[14px] sm:text-lg md:text-base;
+  }
+
+  .text-regular {
+    @apply md:text-md text-[16px] sm:text-xl;
+  }
+
+  .text-large {
+    @apply text-10xl sm:text-5xl md:text-3xl;
+  }
+
+  .text-excel {
+    @apply text-11xl/[100%] sm:text-7xl md:text-4xl;
+  }
+
+  .text-ultimate {
+    @apply text-12xl/[100%] sm:text-8xl md:text-5xl;
+  }
+}

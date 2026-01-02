@@ -1,26 +1,143 @@
 @import 'tailwindcss';
+@import 'tailwindcss/theme' layer(theme);
+@import '../assets/stylesheets/css/config.css';
+@import '../assets/stylesheets/css/TextSizes.css';
+@import '../assets/stylesheets/css/IconSizes.css';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Colors */
+  --primary: #961365;
+  --primary-dark: #511e13;
+  --secondary: #f0d6e6;
+  --secondary-darker: #e2abc7;
+
+  --dark: #000000;
+
+  --cst-neutral-0: #ffffff;
+  --cst-neutral-1: #f2f2f2f2;
+  --cst-neutral-2: #e6e6e6;
+  --cst-neutral-3: #b3b3b3;
+  --cst-neutral-4: #808080;
+  --cst-neutral-5: #4d4d4d;
+  --cst-neutral-6: #1a1a1a;
+  --cst-neutral-7: #000000;
+
+  --cst-neutral-text-1: #808080;
+  --cst-neutral-text-2: #1a1a1a;
+
+  /* Symantics */
+  --success: #28a745;
+  --warning: #ffc107;
+  --error: #dc3545;
+  --info: #17a2b8;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Colors */
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-secondary: var(--secondary);
+  --color-secondary-darker: var(--secondary-darker);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-dark: var(--dark);
+
+  --color-cst-neutral-0: var(--cst-neutral-0);
+  --color-cst-neutral-1: var(--cst-neutral-1);
+  --color-cst-neutral-2: var(--cst-neutral-2);
+  --color-cst-neutral-3: var(--cst-neutral-3);
+  --color-cst-neutral-4: var(--cst-neutral-4);
+  --color-cst-neutral-5: var(--cst-neutral-5);
+  --color-cst-neutral-6: var(--cst-neutral-6);
+  --color-cst-neutral-7: var(--cst-neutral-7);
+
+  --color-cst-neutral-text-1: var(--cst-neutral-text-1);
+  --color-cst-neutral-text-2: var(--cst-neutral-text-2);
+
+  --color-error: var(--error);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+
+  /* Breakpoints */
+  --breakpoint-laptop: 1024px;
+
+  /* Fonts */
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-geist-sans: 'Geist Sans', sans-serif;
+  /* Todo: Replace with actual font families */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-cst-neutral-0 text-cst-neutral-text-2 font-montserrat selection:text-primary selection:bg-secondary md:text-md m-0 p-0 text-3xl sm:text-xl;
+  @apply pt-70 md:pt-30;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply m-0;
+  }
+
+  h1 {
+    @apply mb-2 text-9xl leading-[100%] sm:text-7xl md:text-4xl;
+  }
+
+  h2 {
+    @apply mb-2 text-7xl leading-[100%] sm:text-5xl md:text-3xl;
+  }
+
+  h3 {
+    @apply mb-2 text-7xl leading-[100%] sm:text-4xl md:text-2xl;
+  }
+
+  h4 {
+    @apply mb-2 text-5xl leading-[100%] sm:text-3xl md:text-xl;
+  }
+
+  h5 {
+    @apply md:text-md mb-2 text-4xl leading-[100%] sm:text-2xl sm:tracking-tight;
+  }
+
+  h6 {
+    @apply md:text-md mb-2 text-3xl leading-[100%] sm:text-lg;
+  }
+
+  p {
+    @apply md:text-md text-3xl sm:my-2 sm:text-xl;
+  }
+
+  a {
+    @apply hover:text-cst-neutral-3 cursor-pointer underline underline-offset-2 transition-colors duration-300 hover:underline sm:no-underline;
+  }
+
+  ul,
+  ol {
+    @apply pl-4;
+  }
+
+  li {
+    @apply px-2;
+  }
+
+  strong {
+    @apply font-semibold;
+  }
+
+  em {
+    @apply italic;
+  }
+}
+
+@layer utilities {
+  .no-anim * {
+    transition: none !important;
+  }
+
+  .btn-text {
+    @apply md:text-md text-3xl sm:text-lg;
+  }
 }
